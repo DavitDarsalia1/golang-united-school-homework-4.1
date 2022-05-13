@@ -1,16 +1,16 @@
 package reverse_string
 
-import "strings"
+import "fmt"
 
 func ReverseString(input string) (output string) {
-	var str []string
+	runes := []rune(input)
 
-	for i := len(input) - 1; i >= 0; i-- {
-
-		str = append(str, string(input[i]))
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
 	}
 
-	output = strings.Join(str, "")
+	output = string(runes)
+	fmt.Println(output)
 
 	return
 }
